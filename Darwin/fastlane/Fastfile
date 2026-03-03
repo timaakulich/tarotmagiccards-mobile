@@ -53,6 +53,15 @@ platform :ios do
     increment_version_number(version_number: version)
     increment_build_number(build_number: build_number)
 
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      team_id: "U7Y7892PUU",
+      code_sign_identity: "iPhone Distribution",
+      profile_name: "match AppStore cards.tarotmagic.app",
+      bundle_identifier: "cards.tarotmagic.app",
+      targets: ["TarotMagicCards App"]
+    )
+
     build_app(
       scheme: "TarotMagicCards App",
       export_method: "app-store",
@@ -60,7 +69,7 @@ platform :ios do
       configuration: "Release",
       sdk: "iphoneos",
       destination: "generic/platform=iOS",
-      xcargs: "-skipPackagePluginValidation -skipMacroValidation DEVELOPMENT_TEAM=U7Y7892PUU CODE_SIGN_STYLE=Manual",
+      xcargs: "-skipPackagePluginValidation -skipMacroValidation",
       derived_data_path: "../.build/Darwin/DerivedData",
       output_directory: "../.build/fastlane/Darwin",
       export_options: {
