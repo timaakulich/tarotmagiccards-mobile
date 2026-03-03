@@ -1,5 +1,6 @@
 // Additional properties included by the Fastfile build_app
 
-// This file can be used to override various properties from Skip.env
-//PRODUCT_BUNDLE_IDENTIFIER =
-//DEVELOPMENT_TEAM =
+PRODUCT_BUNDLE_IDENTIFIER = cards.tarotmagic.app
+DEVELOPMENT_TEAM = U7Y7892PUU
+CODE_SIGN_STYLE = Manual
+PROVISIONING_PROFILE_SPECIFIER = match AppStore cards.tarotmagic.app
