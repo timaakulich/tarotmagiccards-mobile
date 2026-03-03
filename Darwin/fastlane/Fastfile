@@ -60,7 +60,7 @@ platform :ios do
       configuration: "Release",
       sdk: "iphoneos",
       destination: "generic/platform=iOS",
-      xcargs: "-skipPackagePluginValidation -skipMacroValidation",
+      xcargs: "-skipPackagePluginValidation -skipMacroValidation DEVELOPMENT_TEAM=U7Y7892PUU CODE_SIGN_STYLE=Manual",
       derived_data_path: "../.build/Darwin/DerivedData",
       output_directory: "../.build/fastlane/Darwin",
       export_options: {
