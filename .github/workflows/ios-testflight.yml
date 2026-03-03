@@ -44,6 +44,7 @@ jobs:
         run: |
           echo 'source "https://rubygems.org"' > Gemfile
           echo 'gem "fastlane"' >> Gemfile
+          echo 'gem "match"' >> Gemfile
           echo 'gem "dotenv"' >> Gemfile
 
       - name: Install Fastlane

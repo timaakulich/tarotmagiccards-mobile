@@ -12,7 +12,7 @@ platform :ios do
       lock_when_sleeps: false
     ) if ENV['CI']
 
-    sync_code_signing(
+    match(
       type: "appstore",
       keychain_name: ENV['CI'] ? "fastlane_tmp_keychain" : nil,
       keychain_password: ENV['CI'] ? ENV["MATCH_PASSWORD"] : nil
