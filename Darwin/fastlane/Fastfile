@@ -60,17 +60,17 @@ platform :ios do
       configuration: "Release",
       sdk: "iphoneos",
       destination: "generic/platform=iOS",
-      xcconfig: "fastlane/AppStore.xcconfig",
-      xcargs: [
-        "-skipPackagePluginValidation",
-        "-skipMacroValidation",
-        "DEVELOPMENT_TEAM=U7Y7892PUU",
-        "CODE_SIGN_STYLE=Manual",
-        "CODE_SIGN_IDENTITY='iPhone Distribution'",
-        "PROVISIONING_PROFILE_SPECIFIER=match AppStore cards.tarotmagic.app"
-      ].join(" "),
+      xcargs: "-skipPackagePluginValidation -skipMacroValidation",
       derived_data_path: "../.build/Darwin/DerivedData",
-      output_directory: "../.build/fastlane/Darwin"
+      output_directory: "../.build/fastlane/Darwin",
+      export_options: {
+        method: "app-store",
+        teamID: "U7Y7892PUU",
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "cards.tarotmagic.app" => "match AppStore cards.tarotmagic.app"
+        }
+      }
     )
 
     upload_to_testflight(
