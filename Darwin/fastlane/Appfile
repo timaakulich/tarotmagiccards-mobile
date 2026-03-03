@@ -1,0 +1,6 @@
+require('dotenv')
+Dotenv.load '../../Skip.env'
+app_identifier("cards.tarotmagic.app")
+
+apple_id("m.drozdetskiy@gmail.com")
+team_id("U7Y7892PUU")

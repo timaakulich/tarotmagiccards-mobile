@@ -1,0 +1,10 @@
+git_url("git@github.com:timaakulich/tarotmagiccards-fastlane.git")
+
+storage_mode("git")
+
+type("development")
+
+app_identifier("cards.tarotmagic.app")
+team_id("U7Y7892PUU")
+
+readonly(true)
