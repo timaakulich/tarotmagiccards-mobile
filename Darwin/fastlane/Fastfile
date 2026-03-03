@@ -3,9 +3,20 @@ default_platform(:ios)
 platform :ios do
   desc "Deploy to TestFlight"
   lane :beta do
-    setup_ci if ENV['CI']
+    create_keychain(
+      name: "fastlane_tmp_keychain",
+      password: ENV["MATCH_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    ) if ENV['CI']
 
-    sync_code_signing(type: "appstore")
+    sync_code_signing(
+      type: "appstore",
+      keychain_name: ENV['CI'] ? "fastlane_tmp_keychain" : nil,
+      keychain_password: ENV['CI'] ? ENV["MATCH_PASSWORD"] : nil
+    )
 
     begin
       last_tag = sh("git tag --sort=-v:refname --merged origin/main | grep -E '^[0-9]+\\.[0-9]+\\.[0-9]+$' | head -1").strip
