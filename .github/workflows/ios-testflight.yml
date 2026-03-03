@@ -40,14 +40,7 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
-      - name: Create Gemfile
-        run: |
-          echo 'source "https://rubygems.org"' > Gemfile
-          echo 'gem "fastlane"' >> Gemfile
-          echo 'gem "match"' >> Gemfile
-          echo 'gem "dotenv"' >> Gemfile
-
-      - name: Install Fastlane
+      - name: Install dependencies
         run: bundle install
 
       - name: Deploy to TestFlight
