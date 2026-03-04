@@ -84,6 +84,11 @@
             value = "/Users/akulich/Library/Android/sdk/platform-tools:/Users/akulich/Library/Android/sdk/emulator:/Users/akulich/Library/Android/sdk/cmdline-tools/latest/bin:$(PATH)"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "SKIP_ZERO"
+            value = "true"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
