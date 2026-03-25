@@ -105,16 +105,7 @@ struct CardThumbnail: View {
     let card: ReadingCardResponse
 
     private var cardColor: Color {
-        if card.cardSuit == nil {
-            return Color(hex: "#B8860B")
-        }
-        switch card.cardSuit {
-        case "cups": return Color(hex: "#1E90FF")
-        case "wands": return Color(hex: "#FF6347")
-        case "swords": return Color(hex: "#87CEEB")
-        case "pentacles": return Color(hex: "#228B22")
-        default: return Theme.accentRed
-        }
+        Theme.cardColor(forSuit: card.cardSuit)
     }
 
     var body: some View {

@@ -13,7 +13,7 @@ enum AppRoute: Hashable {
     case cardDetail(index: Int)
     case finalResult
     case history
-    case readingDetail(readingId: Int)
+
 }
 
 // MARK: - ViewModel
@@ -162,7 +162,4 @@ enum AppRoute: Hashable {
         path = []
     }
 
-    func dismissFlow() {
-        startNewReading()
-    }
 }

@@ -27,7 +27,7 @@ struct HistoryScreen: View {
 
                     HStack {
                         Button {
-                            viewModel.path.removeLast()
+                            if !viewModel.path.isEmpty { viewModel.path.removeLast() }
                         } label: {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 18, weight: .medium))

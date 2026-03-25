@@ -3,7 +3,6 @@ import SwiftUI
 struct RevealCardsScreen: View {
     @Environment(ViewModel.self) var viewModel
 
-    @State var hasNavigated = false
 
     private var totalSlots: Int {
         viewModel.currentReading?.cards.count ?? viewModel.drawnCards.count
@@ -18,7 +17,7 @@ struct RevealCardsScreen: View {
                 HStack {
                     Spacer()
                     Button {
-                        viewModel.dismissFlow()
+                        viewModel.startNewReading()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .medium))
@@ -54,11 +53,5 @@ struct RevealCardsScreen: View {
         #if !os(macOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .onAppear {
-            if !hasNavigated {
-                hasNavigated = true
-                viewModel.path.append(.cardDetail(index: 0))
-            }
-        }
     }
 }

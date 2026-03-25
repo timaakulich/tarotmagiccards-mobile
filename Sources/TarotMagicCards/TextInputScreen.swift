@@ -13,7 +13,7 @@ struct TextInputScreen: View {
                 // Toolbar
                 HStack {
                     Button {
-                        viewModel.path.removeLast()
+                        if !viewModel.path.isEmpty { viewModel.path.removeLast() }
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.system(size: 18, weight: .medium))
@@ -23,7 +23,7 @@ struct TextInputScreen: View {
                     Spacer()
 
                     Button {
-                        viewModel.dismissFlow()
+                        viewModel.startNewReading()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .medium))

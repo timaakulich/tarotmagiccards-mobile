@@ -3,7 +3,8 @@ import SwiftUI
 struct CardDrawingScreen: View {
     @Environment(ViewModel.self) var viewModel
 
-    @State var deckCards: [Int] = Array(0..<9)
+    @State var deckCards: [Int] = []
+    @State var initialDeckSize: Int = 9
     @State var filledSlots: Int = 0
 
     private var totalSlots: Int {
@@ -28,7 +29,7 @@ struct CardDrawingScreen: View {
                     )
                     Spacer()
                     Button {
-                        viewModel.dismissFlow()
+                        viewModel.startNewReading()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .medium))
@@ -62,7 +63,7 @@ struct CardDrawingScreen: View {
                     ForEach(deckCards, id: \.self) { cardIndex in
                         DeckCard(
                             index: cardIndex,
-                            totalCards: 9
+                            totalCards: initialDeckSize
                         )
                         .onTapGesture {
                             guard !viewModel.isLoading, !allSlotsFilled else { return }
@@ -94,6 +95,13 @@ struct CardDrawingScreen: View {
         #if !os(macOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
+        .onAppear {
+            if deckCards.isEmpty {
+                let count = max(totalSlots + 6, 9)
+                initialDeckSize = count
+                deckCards = Array(0..<count)
+            }
+        }
         .onChange(of: viewModel.drawnCards.count) { _, newCount in
             if newCount >= totalSlots {
                 viewModel.finishDrawing()

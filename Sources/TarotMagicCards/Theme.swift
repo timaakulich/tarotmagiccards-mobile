@@ -13,6 +13,19 @@ enum Theme {
         startPoint: .top,
         endPoint: .bottom
     )
+
+    static func cardColor(forSuit suit: String?) -> Color {
+        if suit == nil {
+            return Color(hex: "#B8860B")
+        }
+        switch suit {
+        case "cups": return Color(hex: "#1E90FF")
+        case "wands": return Color(hex: "#FF6347")
+        case "swords": return Color(hex: "#87CEEB")
+        case "pentacles": return Color(hex: "#228B22")
+        default: return Theme.accentRed
+        }
+    }
 }
 
 extension Color {

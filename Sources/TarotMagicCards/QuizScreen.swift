@@ -22,7 +22,7 @@ struct QuizScreen: View {
                     )
                     Spacer()
                     Button {
-                        viewModel.dismissFlow()
+                        viewModel.startNewReading()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.system(size: 18, weight: .medium))

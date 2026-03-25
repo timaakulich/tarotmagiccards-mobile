@@ -25,8 +25,6 @@ struct ContentView: View {
                         FinalResultScreen()
                     case .history:
                         HistoryScreen()
-                    case .readingDetail:
-                        FinalResultScreen()
                     }
                 }
         }
