@@ -16,7 +16,7 @@ struct ContentView: View {
                     case .quiz:
                         QuizScreen()
                     case .cardDrawing:
-                        Text("Card Drawing")
+                        CardDrawingScreen()
                     case .revealCards:
                         Text("Reveal Cards")
                     case .cardDetail(let index):
