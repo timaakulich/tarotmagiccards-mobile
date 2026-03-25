@@ -6,11 +6,11 @@ struct ContentView: View {
     var body: some View {
         @Bindable var viewModel = viewModel
         NavigationStack(path: $viewModel.path) {
-            Text("TarotMagicCards")
+            MainScreen()
                 .navigationDestination(for: AppRoute.self) { route in
                     switch route {
                     case .textInput:
-                        Text("Text Input")
+                        TextInputScreen()
                     case .spreadSelection:
                         Text("Spread Selection")
                     case .quiz:
