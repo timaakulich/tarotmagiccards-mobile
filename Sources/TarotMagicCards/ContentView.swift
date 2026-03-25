@@ -12,9 +12,9 @@ struct ContentView: View {
                     case .textInput:
                         TextInputScreen()
                     case .spreadSelection:
-                        Text("Spread Selection")
+                        SpreadSelectionScreen()
                     case .quiz:
-                        Text("Quiz")
+                        QuizScreen()
                     case .cardDrawing:
                         Text("Card Drawing")
                     case .revealCards:
