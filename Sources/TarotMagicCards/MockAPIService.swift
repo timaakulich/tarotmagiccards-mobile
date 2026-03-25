@@ -1,7 +1,7 @@
 import Foundation
 
 /* SKIP @bridge */
-class MockAPIService {
+final class MockAPIService: Sendable {
 
     // MARK: - Spreads
 
