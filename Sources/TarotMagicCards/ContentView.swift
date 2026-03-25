@@ -18,11 +18,11 @@ struct ContentView: View {
                     case .cardDrawing:
                         CardDrawingScreen()
                     case .revealCards:
-                        Text("Reveal Cards")
+                        RevealCardsScreen()
                     case .cardDetail(let index):
-                        Text("Card Detail \(index)")
+                        CardDetailView(index: index)
                     case .finalResult:
-                        Text("Final Result")
+                        FinalResultScreen()
                     case .history:
                         Text("History")
                     case .readingDetail(let readingId):
