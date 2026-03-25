@@ -24,9 +24,9 @@ struct ContentView: View {
                     case .finalResult:
                         FinalResultScreen()
                     case .history:
-                        Text("History")
-                    case .readingDetail(let readingId):
-                        Text("Reading Detail \(readingId)")
+                        HistoryScreen()
+                    case .readingDetail:
+                        FinalResultScreen()
                     }
                 }
         }
